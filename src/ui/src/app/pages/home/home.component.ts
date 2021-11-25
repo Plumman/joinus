@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LeafletControlLayersConfig, LeafletDirective } from '@asymmetrik/ngx-leaflet';
 import * as L from 'leaflet';
 import { catchError, delay, interval, of, switchMap, tap, timer } from 'rxjs';
-import { GetFleetsRequest } from 'src/api/models';
+import { GetFleetsRequest,VehicleViewModel,VehicleType,Location } from 'src/api/models';
 import { FleetsService, VehiclesService } from 'src/api/services';
 
 @Component({
@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
         }
     }
 
+
     fleets: any = [];
     activeFleet: number | undefined = undefined;
     layers: L.Layer[] = [];
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
 
     vehiclesLoading: boolean = false;
     fleetsLoading: boolean = false;
+    isShowing:boolean=true;
 
     constructor(private vehiclesService: VehiclesService,
         private fleetsService: FleetsService,
@@ -77,6 +79,16 @@ export class HomeComponent implements OnInit {
                     this.fleetsLoading = false;
                 }
             });
+    }
+
+    hideOrShow(){
+        this.isShowing=!this.isShowing
+        console.log("showing? ",this.isShowing)
+    }
+
+    addVehicles(){
+        
+        console.log("add vehicles")
     }
 
     loadVehicles() {
