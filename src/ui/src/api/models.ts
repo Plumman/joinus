@@ -5,3 +5,5 @@ export { GetVehiclesResponse } from './models/get-vehicles-response';
 export { Location } from './models/location';
 export { VehicleType } from './models/vehicle-type';
 export { VehicleViewModel } from './models/vehicle-view-model';
+export { ProgressStatusEnum} from './models/progress-enum';
+export {ProgressStatus } from './models/progress-status';

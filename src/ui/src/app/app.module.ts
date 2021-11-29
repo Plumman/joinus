@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiModule } from 'src/api/api.module';
 import { environment } from 'src/environments/environment';
+import { UploadService } from 'src/api/services';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +24,7 @@ import { UiModule } from './ui.module';
     AppRoutingModule,
     UiModule
   ],
-  providers: [],
+  providers: [ UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

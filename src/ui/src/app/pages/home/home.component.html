@@ -5,7 +5,9 @@
     <button (click)="hideOrShow()">hide/show</button>
     <div *ngIf="isShowing">
         <input type="search" placeholder="Ctrl+F to search vehicles" [(ngModel)]="searchFilter" name="searchFilter" #searchFilterField />
-        <button (click)="addVehicles()">upload file</button>
+
+        
+
         <h4>Fleets</h4>
         <ul class="fleets">
             <li>
@@ -18,6 +20,15 @@
     
         <spinner class="overlay" *ngIf="fleetsLoading"></spinner>
 
+    </div>
+    <div *ngIf="isHiding">
+        <button [disabled]="disabled" [ngClass]="{'disabled': disabled}" class="button upload" (click)="inputFile.click()">
+            UPLOAD
+        </button>
+        <input name="file" id="file"(change)="addVehicles($event)" type="file" #inputFile hidden>
+        <h2>File List</h2>
+        <p *ngIf="showProgress"> progress <strong>{{percentage}}%</strong></p>
+        <hr>
     </div>
     
 </div>
